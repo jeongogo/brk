@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { QueryClientProvider } from 'react-query';
-import { queryClient } from './lib/QueryClient';
+import { QueryClient } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import HomePage from './pages/Home.page';
 import LoginPage from './pages/auth/Login.page';
@@ -14,6 +14,8 @@ import PrivacyPage from './pages/common/Privacy.page';
 import TermsPage from './pages/common/Terms.page';
 import CustomerPage from './pages/Customer.page';
 import './App.scss';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (

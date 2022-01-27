@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useQuery } from 'react-query';
-import { queryClient } from '../../lib/QueryClient';
+import { useQuery, useQueryClient } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { getPostById, getComments } from '../../lib/api/post';
 import Detail from '../../components/post/Detail';
@@ -9,6 +8,7 @@ import Comment from '../../components/post/Comment';
 import Loader from '../../components/common/Loader';
 
 const PostDetailContainer = () => {
+  const queryClient = useQueryClient();
   const { id } = useParams();
 
   const {

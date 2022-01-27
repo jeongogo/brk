@@ -1,13 +1,14 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useQuery } from 'react-query';
-import { queryClient } from '../../lib/QueryClient';
+import { useQuery, useQueryClient } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { getPhotoById } from '../../lib/api/photo';
 import Detail from '../../components/photo/Detail';
 import Loader from '../../components/common/Loader';
 
 const PhotoDetailContainer = () => {
+  const queryClient = useQueryClient();
+
   const { id } = useParams();
   const { isLoading, data, isError } = useQuery('photo', () =>
     getPhotoById(id),
